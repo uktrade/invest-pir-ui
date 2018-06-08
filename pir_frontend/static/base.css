@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+article.grid-row {
+  margin-bottom: 100px;
+}

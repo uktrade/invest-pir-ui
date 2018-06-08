@@ -1,0 +1,5 @@
+directory-components==2.2.0
+Django==1.11.13
+export-elements==0.12.2
+pytz==2018.4
+whitenoise==3.3.1
