@@ -25,7 +25,10 @@ SECRET_KEY = 'doj6z+3ryj)gn$v88vw03u)(z7*989%e)9c&p^p$r=(qu$797g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'pirfrontend.cloudapps.digital',
+]
 
 
 # Application definition
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_countries',
     'export_elements',
     'directory_components',
     'pir_frontend'
@@ -128,3 +132,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_HOST = os.environ.get('STATIC_HOST', '')
 STATIC_URL = STATIC_HOST + '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+PIR_API_KEY = os.getenv('PIR_API_KEY', 'changeme')
+PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')

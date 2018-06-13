@@ -8,10 +8,20 @@
     <div class="grid-row">
       <div class="column-two-thirds">
 
-        <h1 class="heading-xlarge">PIR Form </h1>
-
-
-
+        {% if error %}
+                <p> {{ error }} </p>
+        {% elif form %}
+        <h1 class="heading-xlarge">PIR Form</h1>
+          <div class="column-one-half">
+            <form method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input class="button" type="submit" value="Submit" />
+            </form>
+          </div>
+        {% else %}
+        <p>Thank you for using the PIR generator</p>
+        {% endif %}
       </div>
     </div>
   </div>
