@@ -16,9 +16,6 @@ def form_base(request):
         if form.is_valid():
             data = form.cleaned_data
 
-            import pdb
-            pdb.set_trace()
-
             try:
                 form.client.create_report(data)
             except Exception as e:

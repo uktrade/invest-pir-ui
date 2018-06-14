@@ -2,6 +2,7 @@ from django.conf import settings
 
 from directory_components import forms, fields
 from django_countries.data import COUNTRIES
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 from pir_client import PIRAPIClient
 
@@ -52,3 +53,5 @@ class PIRForm(forms.Form):
             help_text='Sector',
             choices=sector_choices
         )
+
+        self.fields['captcha'] = NoReCaptchaField()

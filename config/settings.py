@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'nocaptcha_recaptcha',
     'django_countries',
     'export_elements',
     'directory_components',
@@ -138,3 +139,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 PIR_API_KEY = os.getenv('PIR_API_KEY', 'changeme')
 PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')
+
+NORECAPTCHA_SITE_KEY= os.getenv('RECAPTCHA_PUBLIC_KEY')
+NORECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
