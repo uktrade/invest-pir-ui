@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'pirfrontend.cloudapps.digital',
+    *[
+        h for h in os.getenv('ALLOWED_HOSTS', '').split(',') if h
+    ]
 ]
 
 
