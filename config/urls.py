@@ -17,5 +17,6 @@ from django.conf.urls import url
 from pir_frontend.views import form_base
 
 urlpatterns = [
-    url('^$', form_base)
+    url('^$', form_base),
+    url('^invest/pir/$', form_base)
 ]
