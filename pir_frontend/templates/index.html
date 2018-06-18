@@ -3,10 +3,21 @@
 {% block head_title %}directory-components{% endblock %}
 
 {% block content %}
+
 <section>
   <div class="container">
     <div class="grid-row">
       <div class="column-two-thirds">
+
+      <div id="formexplain">
+            <h1>{% trans "Personalised Investment Report:" %}</h1>
+            <ul>
+                <li>{% trans "practical support and information about taking your investment forward" %}</li>
+                <li>{% trans "insights into the UK market" %}</li>
+                <li>{% trans "help building connections" %}</li>
+            </ul>
+            <p>{% trans "The team may put you in touch with a UK government office in your region to support you with advice relevant to your country." %}</p>
+      </div>
 
         {% if error %}
                 <p> {{ error }} </p>
@@ -16,11 +27,15 @@
             <form method="POST">
               {% csrf_token %}
               {{ form.as_p }}
-              <input class="button" type="submit" value="Submit" />
+              <input class="button" type="submit" value="{% trans "Submit" }" />
             </form>
           </div>
         {% else %}
-        <p>Thank you for using the PIR generator</p>
+                <p>
+            {% blocktrans %}
+              Your personalised Investment Report has been emailed to {{ email }}
+            {% endblocktrans %}
+                </p>
         {% endif %}
       </div>
     </div>

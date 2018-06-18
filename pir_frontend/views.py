@@ -27,7 +27,9 @@ def form_base(request):
                     )
                 })
 
-            return render(request, 'index.html')
+            return render(request, 'index.html', {
+                'email': data['email']
+            })
 
     return render(request, 'index.html', {
         'form': form
