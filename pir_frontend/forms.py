@@ -29,9 +29,10 @@ class PIRForm(forms.Form):
         required=True,
         label='Country',
         help_text='Country',
-        choices=[
-            (k, v) for k, v in COUNTRIES.items()
-        ]
+        choices=sorted(
+            [(k, v) for k, v in COUNTRIES.items()],
+            key=lambda tup: tup[1]
+        )
     )
 
 
