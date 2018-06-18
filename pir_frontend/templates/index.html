@@ -10,6 +10,11 @@
     <div class="grid-row">
       <div class="column-two-thirds">
 
+
+        {% if error %}
+                <p> {{ error }} </p>
+        {% elif form %}
+
       <div id="formexplain">
             <h1>{% trans "Personalised Investment Report:" %}</h1>
             <ul>
@@ -19,10 +24,6 @@
             </ul>
             <p>{% trans "The team may put you in touch with a UK government office in your region to support you with advice relevant to your country." %}</p>
       </div>
-
-        {% if error %}
-                <p> {{ error }} </p>
-        {% elif form %}
         <h1 class="heading-xlarge">PIR Form</h1>
           <div class="column-one-half">
             <form method="POST">
