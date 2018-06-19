@@ -25,7 +25,12 @@ SECRET_KEY = 'doj6z+3ryj)gn$v88vw03u)(z7*989%e)9c&p^p$r=(qu$797g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    *[
+        h for h in os.getenv('ALLOWED_HOSTS', '').split(',') if h
+    ]
+]
 
 
 # Application definition
@@ -37,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'nocaptcha_recaptcha',
+    'django_countries',
+    'export_elements',
+    'directory_components',
+    'pir_frontend'
 ]
 
 MIDDLEWARE = [
@@ -47,9 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'pir_frontend.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -62,12 +74,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'directory_components.context_processors.header_footer_processor',
+                'directory_components.context_processors.urls_processor',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'pir_frontend.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -117,4 +131,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_HOST = os.environ.get('STATIC_HOST', '')
+STATIC_URL = STATIC_HOST + '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+PIR_API_KEY = os.getenv('PIR_API_KEY', 'changeme')
+PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')
+
+NORECAPTCHA_SITE_KEY= os.getenv('RECAPTCHA_PUBLIC_KEY')
+NORECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')

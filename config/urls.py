@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
+from pir_frontend.views import form_base
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url('^$', form_base),
+    url('^invest/pir/$', form_base)
 ]

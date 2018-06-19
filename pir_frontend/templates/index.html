@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Personalised Investment Report:" %}{% endblock %}
+
+{% block content %}
+
+<section>
+  <div class="container">
+    <div class="grid-row">
+      <div class="column-two-thirds">
+
+
+        {% if error %}
+                <p> {{ error }} </p>
+        {% elif form %}
+
+      <div id="formexplain">
+            <h1>{% trans "The UK for your business – tailored investment report" %}</h1>
+            <p>{% trans "The team may put you in touch with a UK government office in your region to support you with advice relevant to your country." %}</p>
+            <p>{% trans "To get your free tailored report outlining all the advantages and opportunities the UK can offer your business as a destination for growth, simply enter your details below." %}</p>
+      </div>
+        <h1 class="heading-xlarge">PIR Form</h1>
+          <div class="column-one-half">
+            <form method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input class="button" type="submit" value="{% trans "Submit" %}" />
+            </form>
+          </div>
+        {% else %}
+                <p>
+            {% blocktrans %}
+              Your personalised Investment Report has been emailed to {{ email }}
+            {% endblocktrans %}
+                </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{% endblock %}
