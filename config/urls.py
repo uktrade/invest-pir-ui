@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from pir_frontend.views import form_base
+from pir_frontend.views import PIRView
 
 urlpatterns = [
-    url('^$', form_base),
-    url('^invest/pir/$', form_base)
+    url('^$', PIRView.as_view()),
+    url('^invest/pir/$', PIRView.as_view())
 ]

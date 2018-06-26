@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'doj6z+3ryj)gn$v88vw03u)(z7*989%e)9c&p^p$r=(qu$797g'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if (os.getenv('DEBUG') == 'true') else False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
@@ -137,7 +137,7 @@ STATIC_URL = STATIC_HOST + '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-PIR_API_KEY = os.getenv('PIR_API_KEY', 'changeme')
+PIR_API_KEY = os.environ['PIR_API_KEY']
 PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')
 
 NORECAPTCHA_SITE_KEY= os.getenv('RECAPTCHA_PUBLIC_KEY')
