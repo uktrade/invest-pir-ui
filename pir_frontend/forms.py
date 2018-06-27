@@ -41,7 +41,9 @@ class PIRForm(forms.Form):
         options = self.client.get_options()
 
         sector_choices = [
-            (o['value'], o['display_name']) for o in options['sector']['choices']
+            (
+                o['value'],
+                o['display_name']) for o in options['sector']['choices']
         ]
 
         self.fields['sector'] = fields.ChoiceField(
