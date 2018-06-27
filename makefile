@@ -50,7 +50,7 @@ docker_test_env_files:
 
 DOCKER_REMOVE_ALL := \
 	docker ps -a | \
-	grep directoryui_ | \
+	grep invest-pir-ui_ | \
 	awk '{print $$1 }' | \
 	xargs -I {} docker rm -f {}
 

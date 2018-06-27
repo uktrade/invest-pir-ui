@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
--e git+https://github.com/uktrade/invest-pir-api-client.git@1235d5e7ca2fb940462d4fc7dc4d552d6c1d1d47#egg=pir_client
+-e git+https://github.com/uktrade/invest-pir-api-client.git@00b18e001f9126053adc99a4d1d4e7fd2517df4b#egg=pir_client
 certifi==2018.4.16        # via requests
 chardet==3.0.4            # via requests
 directory-client-core==0.2.1
