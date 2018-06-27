@@ -138,7 +138,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 PIR_API_KEY = os.environ['PIR_API_KEY']
-PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')
+PIR_API_URL = os.getenv('PIR_API_URL', 'https://invest-pir-api-dev.cloudapps.digital')
 
 NORECAPTCHA_SITE_KEY= os.getenv('RECAPTCHA_PUBLIC_KEY')
 NORECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
