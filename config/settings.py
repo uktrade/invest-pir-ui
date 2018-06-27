@@ -25,12 +25,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if (os.getenv('DEBUG') == 'true') else False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    *[
-        h for h in os.getenv('ALLOWED_HOSTS', '').split(',') if h
-    ]
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -137,8 +132,8 @@ STATIC_URL = STATIC_HOST + '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-PIR_API_KEY = os.environ['PIR_API_KEY']
-PIR_API_URL = os.getenv('PIR_API_URL', 'https://pirapi.cloudapps.digital')
+PIR_API_KEY = os.getenv('PIR_API_KEY')
+PIR_API_URL = os.getenv('PIR_API_URL')
 
 NORECAPTCHA_SITE_KEY= os.getenv('RECAPTCHA_PUBLIC_KEY')
 NORECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
