@@ -1,6 +1,5 @@
 from django.test import TestCase
-from unittest.mock import patch, Mock
-
+from unittest.mock import patch
 
 OPTIONS_DATA = {
     "country": {
@@ -59,7 +58,7 @@ class ViewTest(TestCase):
         res = self.client.post('/', data=valid_data)
         self.assertEquals(res.status_code, 201)
 
-        res = self.client.post('/', data={'name': 'Ted',})
+        res = self.client.post('/', data={'name': 'Ted', })
         self.assertEquals(res.status_code, 400)
 
         client_instance_mock().create_report.side_effect = ValueError()
