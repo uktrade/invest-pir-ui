@@ -6,4 +6,5 @@ django-countries==5.2
 django-nocaptcha-recaptcha==0.0.20
 directory-components==2.5.0
 export-elements==0.12.2
-#-e git+https://github.com/uktrade/invest-pir-api-client.git#egg=pir_client
+# this needs to be pinned to a version once the client is published to pypi
+-e git+https://github.com/uktrade/invest-pir-api-client.git@1235d5e7ca2fb940462d4fc7dc4d552d6c1d1d47#egg=pir_client
