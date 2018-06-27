@@ -4,7 +4,7 @@ from directory_components import forms, fields
 from django_countries.data import COUNTRIES
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
-from pir_client import PIRAPIClient
+from pir_client.client import PIRAPIClient
 
 
 class PIRForm(forms.Form):
