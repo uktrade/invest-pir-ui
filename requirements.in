@@ -7,3 +7,4 @@ django-nocaptcha-recaptcha==0.0.20
 directory-components==2.5.0
 export-elements==0.12.2
 pir-client==0.1.0
+raven
