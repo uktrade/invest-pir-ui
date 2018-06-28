@@ -4,14 +4,13 @@
 #
 #    pip-compile --output-file requirements_test.txt requirements_test.in
 #
--e git+https://github.com/uktrade/invest-pir-api-client.git@00b18e001f9126053adc99a4d1d4e7fd2517df4b#egg=pir_client
 atomicwrites==1.1.5       # via pytest
 attrs==18.1.0             # via pytest
 certifi==2018.4.16        # via requests
 chardet==3.0.4            # via requests
 codecov==2.0.15
 coverage==4.5.1           # via codecov, pytest-cov
-directory-client-core==0.2.1
+directory-client-core==0.2.1  # via pir-client
 directory-components==2.5.0
 django-countries==5.2
 django-nocaptcha-recaptcha==0.0.20
@@ -25,6 +24,7 @@ mccabe==0.6.1             # via flake8
 mohawk==0.3.4             # via sigauth
 monotonic==1.5            # via directory-client-core
 more-itertools==4.2.0     # via pytest
+pir-client==0.1.0
 pluggy==0.6.0             # via pytest
 py==1.5.3                 # via pytest, pytest-catchlog
 pycodestyle==2.3.1        # via flake8
