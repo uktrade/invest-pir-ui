@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_countries',
     'export_elements',
     'directory_components',
-    'pir_frontend'
+    'pir_frontend',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+# Sentry
+RAVEN_CONFIG = {
+    "dsn": os.getenv("SENTRY_DSN"),
+}
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_HOST = os.environ.get('STATIC_HOST', '')
