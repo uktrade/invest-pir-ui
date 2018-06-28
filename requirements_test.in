@@ -1,0 +1,10 @@
+-r requirements.in
+
+pytest
+pytest-cov
+pytest-django
+pytest-sugar
+flake8
+pytest-catchlog
+requests_mock
+codecov
