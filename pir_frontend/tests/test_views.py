@@ -67,7 +67,6 @@ class ViewTest(TestCase):
         res = self.client.post('/', data=valid_data)
         self.assertEquals(res.status_code, 500)
 
-
     @patch('pir_frontend.views.boto3')
     def test_proxy_view(self, boto3):
         boto3.client().generate_presigned_url.return_value = (
