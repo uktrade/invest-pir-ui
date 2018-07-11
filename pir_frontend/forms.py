@@ -23,6 +23,11 @@ class PIRForm(forms.Form):
         label=_('Email'),
     )
 
+    phone_number = fields.CharField(
+        required=False,
+        label=_('Phone Number'),
+    )
+
     country = fields.ChoiceField(
         required=True,
         label=_('Country'),
