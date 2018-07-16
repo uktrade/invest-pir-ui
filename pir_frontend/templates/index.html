@@ -16,13 +16,11 @@
         {% elif form %}
 
         <div id="formexplain">
-              <h1>{% trans "The UK for your business – tailored investment report" %}</h1>
-              <p>{% trans "The team may put you in touch with a UK government office in your region to support you with advice relevant to your country." %}</p>
+              <h1 class="heading-xlarge">{% trans "The UK for your business – tailored investment report" %}</h1>
               <p>{% trans "To get your free tailored report outlining all the advantages and opportunities the UK can offer your business as a destination for growth, simply enter your details below." %}</p>
         </div>
       </div>
     </div>
-    <h1 class="heading-xlarge">PIR Form</h1>
     <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
@@ -31,7 +29,7 @@
     {% else %}
             <p>
         {% blocktrans %}
-          Your personalised Investment Report has been emailed to {{ email }}
+          Thank You. Your personalised Investment Report has been emailed to {{ email }}
         {% endblocktrans %}
             </p>
     {% endif %}
