@@ -32,6 +32,8 @@ class PIRForm(forms.Form):
         )
     )
 
+    check = fields.BooleanField(required=True)
+
     def __init__(self, *args, **kwargs):
         super(PIRForm, self).__init__(*args, **kwargs)
         self.client = PIRAPIClient(

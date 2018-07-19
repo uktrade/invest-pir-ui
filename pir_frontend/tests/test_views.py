@@ -49,7 +49,8 @@ class ViewTest(TestCase):
             'email': 'ted@example.com',
             'country': 'US',
             'sector': 'tech',
-            'g-recaptcha-response': 'PASSED'
+            'g-recaptcha-response': 'PASSED',
+            'check': 'on'
         }
 
         res = self.client.get('/')

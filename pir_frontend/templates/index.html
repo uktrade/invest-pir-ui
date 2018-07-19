@@ -1,30 +1,112 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block head_title %}{% trans "Personalised Investment Report:" %}{% endblock %}
 
-{% block content %}
 
+{% block body_header %}
+        {{ block.super }}
+        <section id="heading_hero">
+            <div class="jumbotron" style="background-image: url({% static 'header-image.jpg' %});">
+            <div class="container">
+                <div class="heading-container">
+                  <div class="heading">
+                  <h1>{% trans "WHY UK" %}</h1>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </section>
+{% endblock %}
+
+{% block content %}
 <section>
   <div class="container">
     <div class="grid-row">
       <div class="column-two-thirds">
-
-
         {% if error %}
                 <p> {{ error }} </p>
         {% elif form %}
 
         <div id="formexplain">
-              <h1 class="heading-xlarge">{% trans "The UK for your business – tailored investment report" %}</h1>
-              <p>{% trans "To get your free tailored report outlining all the advantages and opportunities the UK can offer your business as a destination for growth, simply enter your details below." %}</p>
+              <p>
+              {% blocktrans %}
+              <span class="bold">WHYUK</span> is your personalised prospectus to
+                business growth opportunities in the UK. Simply
+                enter your details below to access a wealth of
+                intelligence and insight tailored to your business
+                in a downloadable, shareable report.
+              {% endblocktrans %}
+              </p>
         </div>
       </div>
     </div>
     <form method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
+
+      <p class="form-group">
+        {{ form.name.errors }}
+        <label class="form-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        {{ form.name }}
+      </p>
+
+      <p class="form-group">
+        {{ form.company.errors }}
+        <label  class="form-label" for="{{ form.company.id_for_label }}">{{ form.company.label }}</label>
+        {{ form.company }}
+      </p>
+
+      <p class="form-group">
+        {{ form.email.errors }}
+        <label  class="form-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+        {{ form.email }}
+      </p>
+
+      <p class="form-group">
+        {{ form.country.errors }}
+        <label  class="form-label" for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+        {{ form.country }}
+      </p>
+
+      <p class="form-group">
+        {{ form.sector.errors }}
+        <label  class="form-label" for="{{ form.sector.id_for_label }}">{{ form.sector.label }}</label>
+        {{ form.sector }}
+      </p>
+
+      <p class="form-group">
+        {{ form.captcha.errors }}
+        <label  class="form-label" for="{{ form.captcha.id_for_label }}">{{ form.captcha.label }}</label>
+        {{ form.captcha }}
+      </p>
+
+    <div>
       <input class="button" type="submit" value="{% trans "Submit" %}" />
+    </div>
+
+        <div class="grid-row tandc-gdpr">
+              <div class="column-two-thirds">
+                <div>
+                      <p>
+                      {% blocktrans %}The team may put you in touch with
+                      a UK government office in your region to support
+                      your with advice relevant to your country
+                        {% endblocktrans %}
+                      </p>
+                </div>
+            </div>
+        </div>
+
+      <p class="form-group tandc">
+        {{ form.check.errors }}
+        {{ form.check }}
+        <label  class="check-label form-label" for="{{ form.check.id_for_label }}">
+        {% blocktrans %}
+        Please check this box to accept the terms and conditions of the great.gov.uk service.
+        {% endblocktrans %}
+        </label>
+      </p>
+
     </form>
     {% else %}
             <p>
