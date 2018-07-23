@@ -1,5 +1,7 @@
 from django.test import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
+from botocore.errorfactory import ClientError
+
 
 OPTIONS_DATA = {
     "country": {
@@ -65,3 +67,21 @@ class ViewTest(TestCase):
         client_instance_mock().create_report.side_effect = ValueError()
         res = self.client.post('/', data=valid_data)
         self.assertEquals(res.status_code, 500)
+
+    @patch('pir_frontend.views.boto3')
+    def test_proxy_view(self, boto3):
+        boto3.client().generate_presigned_url.return_value = (
+            'http://www.example.com/test.pdf'
+        )
+
+        res = self.client.get('/reports/test.pdf')
+        self.assertEquals(
+            res.get('location'), 'http://www.example.com/test.pdf'
+        )
+
+        boto3.client().head_object.side_effect = ClientError(
+            MagicMock(), MagicMock()
+        )
+        # key doesn't exist
+        res = self.client.get('/reports/test.pdf')
+        self.assertEquals(res.status_code, 404)
