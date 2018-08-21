@@ -52,7 +52,7 @@ class ViewTest(TestCase):
             'country': 'US',
             'sector': 'tech',
             'g-recaptcha-response': 'PASSED',
-            'check': 'on'
+            'gdpr_optin': 'on'
         }
 
         res = self.client.get('/')
