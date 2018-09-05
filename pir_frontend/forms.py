@@ -37,6 +37,8 @@ class PIRForm(forms.Form):
         )
     )
 
+    gdpr_optin = fields.BooleanField()
+
     def __init__(self, *args, **kwargs):
         super(PIRForm, self).__init__(*args, **kwargs)
         self.client = PIRAPIClient(
