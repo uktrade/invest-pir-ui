@@ -134,7 +134,7 @@ RAVEN_CONFIG = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_HOST = os.environ.get('STATIC_HOST', '')
-STATIC_URL = STATIC_HOST + 'static/'
+STATIC_URL = STATIC_HOST + '/perfectfit/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 PIR_API_KEY = os.getenv('PIR_API_KEY')
