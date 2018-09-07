@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+from django.forms import TextInput
 
 from directory_components import forms, fields
 from django_countries.data import COUNTRIES
@@ -21,6 +22,12 @@ class PIRForm(forms.Form):
     email = fields.EmailField(
         required=True,
         label=_('Email'),
+    )
+
+    phone_number = fields.CharField(
+        required=False,
+        label=_('Phone number (optional)'),
+        widget=TextInput(attrs={'type': 'tel'})
     )
 
     country = fields.ChoiceField(
