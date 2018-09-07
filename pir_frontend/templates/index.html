@@ -48,35 +48,41 @@
     <form method="POST">
       {% csrf_token %}
 
-      <p class="form-group">
-        {{ form.name.errors }}
-        <label class="form-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+      <div class="form-group{% if form.name.errors %} form-group-error{% endif %}">
+        {% if form.name.label %}{{ form.name.label_tag }}{% endif %}
+        <span class="error-message">{{ form.name.errors }}</span>
         {{ form.name }}
-      </p>
+      </div>
 
-      <p class="form-group">
-        {{ form.company.errors }}
-        <label  class="form-label" for="{{ form.company.id_for_label }}">{{ form.company.label }}</label>
+      <div class="form-group{% if form.company.errors %} form-group-error{% endif %}">
+        {% if form.company.label %}{{ form.company.label_tag }}{% endif %}
+        <span class="error-message">{{ form.company.errors }}</span>
         {{ form.company }}
-      </p>
+      </div>
 
-      <p class="form-group">
-        {{ form.email.errors }}
-        <label  class="form-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+      <div class="form-group{% if form.email.errors %} form-group-error{% endif %}">
+        {% if form.email.label %}{{ form.email.label_tag }}{% endif %}
+        <span class="error-message">{{ form.email.errors }}</span>
         {{ form.email }}
-      </p>
+      </div>
 
-      <p class="form-group">
-        {{ form.country.errors }}
-        <label  class="form-label" for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+      <div class="form-group{% if form.phone_number.errors %} form-group-error{% endif %}">
+        {% if form.phone_number.label %}{{ form.phone_number.label_tag }}{% endif %}
+        <span class="error-message">{{ form.phone_number.errors }}</span>
+        {{ form.phone_number }}
+      </div>
+
+      <div class="form-group{% if form.country.errors %} form-group-error{% endif %}">
+        {% if form.country.label %}{{ form.country.label_tag }}{% endif %}
+        <span class="error-message">{{ form.country.errors }}</span>
         {{ form.country }}
-      </p>
+      </div>
 
-      <p class="form-group">
-        {{ form.sector.errors }}
-        <label  class="form-label" for="{{ form.sector.id_for_label }}">{{ form.sector.label }}</label>
+      <div class="form-group{% if form.sector.errors %} form-group-error{% endif %}">
+        {% if form.sector.label %}{{ form.sector.label_tag }}{% endif %}
+        <span class="error-message">{{ form.sector.errors }}</span>
         {{ form.sector }}
-      </p>
+      </div>
 
         <div class="grid-row tandc-gdpr">
               <div class="column-two-thirds">
@@ -93,8 +99,8 @@ If you would like to receive further information about setting up your business 
             </div>
         </div>
 
-      <p class="form-group tandc">
-        {{ form.gdpr_optin.errors }}
+      <p class="form-group tandc {% if form.gdpr_optin.errors %} form-group-error{% endif %}">
+        <span class="error-message">{{ form.gdpr_optin.errors }}</span>
         {{ form.gdpr_optin }}
         <label  class="check-label form-label" for="{{ form.gdpr_optin.id_for_label }}">
         {% blocktrans %}
@@ -103,10 +109,11 @@ If you would like to receive further information about setting up your business 
         </label>
       </p>
 
-      <p class="form-group">
-        {{ form.captcha.errors }}
+      <div class="form-group{% if form.captcha.errors %} form-group-error{% endif %}">
+        {% if form.captcha.label %}{{ form.captcha.label_tag }}{% endif %}
+        <span class="error-message">{{ form.captcha.errors }}</span>
         {{ form.captcha }}
-      </p>
+      </div>
 
     <div>
       <input class="button" type="submit" value="{% trans "Submit" %}" />
