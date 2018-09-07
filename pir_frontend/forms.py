@@ -39,7 +39,7 @@ class PIRForm(forms.Form):
         )
     )
 
-    gdpr_optin = fields.BooleanField()
+    gdpr_optin = fields.BooleanField(initial=False, required=False)
 
     def __init__(self, *args, **kwargs):
         super(PIRForm, self).__init__(*args, **kwargs)
