@@ -18,6 +18,7 @@ from pir_frontend.views import PIRView, ProxyView
 
 urlpatterns = [
     url('^$', PIRView.as_view()),
-    url('^perfectfit/$', PIRView.as_view()),
     url('^reports/(?P<filename>.*)$', ProxyView.as_view()),
+    url('^perfectfit/$', PIRView.as_view()),
+    url('^perfectfit/reports/(?P<filename>.*)$', ProxyView.as_view()),
 ]
