@@ -59,7 +59,7 @@ class ViewTest(TestCase):
         self.assertEquals(res.status_code, 200)
 
         res = self.client.post('/', data=valid_data)
-        self.assertEquals(res.status_code, 201)
+        self.assertEquals(res.status_code, 302)
 
         res = self.client.post('/', data={'name': 'Ted', })
         self.assertEquals(res.status_code, 400)
