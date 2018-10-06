@@ -2,7 +2,6 @@ import logging
 import boto3
 
 from django.views import View
-from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, Http404
 from django.conf import settings
@@ -11,6 +10,19 @@ from pir_frontend.forms import PIRForm
 from botocore.errorfactory import ClientError
 
 logger = logging.getLogger(__name__)
+
+
+def succes_view(request):
+    email = request.session.pop('email', None)
+    if email:
+        return render(
+            request, 'index.html', {
+                'email': email
+            },
+            status=200,
+        )
+    else:
+        return redirect('pir_view')
 
 
 class PIRView(View):
@@ -41,7 +53,6 @@ class PIRView(View):
                 request, 'index.html', {'form': form},
                 status=400
             )
-
 
     def get(self, request):
         return render(

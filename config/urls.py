@@ -17,10 +17,12 @@ from django.conf.urls import url
 from pir_frontend.views import PIRView, ProxyView, succes_view
 
 urlpatterns = [
-#    url('^$', PIRView.as_view(), name='pir_view_root'),
+    url('^$', PIRView.as_view(), name='pir_view_root'),
     url('^reports/(?P<filename>.*)$', ProxyView.as_view()),
     url('^perfectfit/reports/(?P<filename>.*)$', ProxyView.as_view()),
     url('^perfectfit/$', PIRView.as_view(), name='pir_view'),
-    url('^perfectfit/success/$', succes_view,
-        name='pir_view_success'),
+    url(
+        '^perfectfit/success/$', succes_view,
+        name='pir_view_success'
+    ),
 ]
