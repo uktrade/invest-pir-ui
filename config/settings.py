@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'directory_components.context_processors.analytics',
                 'directory_components.context_processors.header_footer_processor',
                 'directory_components.context_processors.urls_processor',
             ],
@@ -148,3 +149,8 @@ AWS_S3_PDF_STORE_SECRET_ACCESS_KEY = os.environ.get('AWS_S3_PDF_STORE_SECRET_ACC
 AWS_S3_PDF_STORE_BUCKET_NAME = os.environ.get('AWS_S3_PDF_STORE_BUCKET_NAME')
 AWS_S3_PDF_STORE_BUCKET_REGION = os.environ.get('AWS_S3_PDF_STORE_BUCKET_REGION', 'eu-west-2')  # NOQA
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
+
+# Google tag manager
+GOOGLE_TAG_MANAGER_ID = os.getenv('GOOGLE_TAG_MANAGER_ID')
+GOOGLE_TAG_MANAGER_ENV = os.getenv('GOOGLE_TAG_MANAGER_ENV', '')
+UTM_COOKIE_DOMAIN = os.getenv('UTM_COOKIE_DOMAIN')
