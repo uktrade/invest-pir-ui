@@ -13,7 +13,7 @@ from directory_components.mixins import CountryDisplayMixin
 logger = logging.getLogger(__name__)
 
 
-class PIRView(View, CountryDisplayMixin):
+class PIRView(CountryDisplayMixin, View):
     def post(self, request):
         form = PIRForm(request.POST)
         if form.is_valid():
@@ -49,7 +49,7 @@ class PIRView(View, CountryDisplayMixin):
         )
 
 
-class ProxyView(View, CountryDisplayMixin):
+class ProxyView(CountryDisplayMixin, View):
     def get(self, request, filename):
         client = boto3.client(
             's3',
