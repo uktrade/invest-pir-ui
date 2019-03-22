@@ -45,7 +45,9 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_PIR_UI_PIR_API_URL=foo; \
 	export INVEST_PIR_UI_NORECAPTCHA_TESTING=True; \
 	export NEWS_SECTION_ON=false; \
-	export DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC=http://exred.trade.great:8007
+	export DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC=http://exred.trade.great:8007; \
+	export DIRECTORY_CONSTANTS_URL_FIND_A_BUYER=http://buyer.trade.great:8001; \
+	export DIRECTORY_CONSTANTS_URL_INVEST=http://invest.trade.great:8012
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
