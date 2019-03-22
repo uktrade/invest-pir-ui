@@ -19,6 +19,7 @@ directory-components==7.0.4
 directory-constants==14.2.0  # via directory-components
 django-admin-ip-restrictor==1.0.0  # via directory-components
 django-countries==5.2
+django-environ==0.4.5
 django-ipware==2.1.0      # via django-admin-ip-restrictor
 django-nocaptcha-recaptcha==0.0.20
 django==1.11.13
