@@ -60,7 +60,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'directory_components.middleware.CountryMiddleware',
 ]
+
+FEATURE_FLAGS = {
+    'NEWS_SECTION_ON': env.bool('FEATURE_NEWS_SECTION_ENABLED', False)
+}
 
 ROOT_URLCONF = 'config.urls'
 
