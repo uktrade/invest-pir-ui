@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+import environ
+
+env = environ.Env()
+env.read_env()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,7 +45,7 @@ INSTALLED_APPS = [
 
     'nocaptcha_recaptcha',
     'django_countries',
-    'export_elements',
+    'directory_constants',
     'directory_components',
     'pir_frontend',
     'raven.contrib.django.raven_compat',
@@ -79,6 +84,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# HEADER/FOOTER URLS
+DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC = env.str(
+    'DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC', ''
+)
 
 
 # Database
