@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
