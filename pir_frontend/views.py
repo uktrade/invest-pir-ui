@@ -8,11 +8,12 @@ from django.conf import settings
 
 from pir_frontend.forms import PIRForm
 from botocore.errorfactory import ClientError
+from directory_components.mixins import CountryDisplayMixin
 
 logger = logging.getLogger(__name__)
 
 
-class PIRView(View):
+class PIRView(View, CountryDisplayMixin):
     def post(self, request):
         form = PIRForm(request.POST)
         if form.is_valid():
@@ -48,7 +49,7 @@ class PIRView(View):
         )
 
 
-class ProxyView(View):
+class ProxyView(View, CountryDisplayMixin):
     def get(self, request, filename):
         client = boto3.client(
             's3',
