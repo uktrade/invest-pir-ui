@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+#country-select-activator-container {
+    display: none;
+}
+
 article.grid-row {
   margin-bottom: 100px;
 }
