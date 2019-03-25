@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+import environ
+
+env = environ.Env()
+env.read_env()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,14 +45,15 @@ INSTALLED_APPS = [
 
     'nocaptcha_recaptcha',
     'django_countries',
-    'export_elements',
+    'directory_constants',
     'directory_components',
     'pir_frontend',
     'raven.contrib.django.raven_compat',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,7 +61,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'directory_components.middleware.CountryMiddleware',
 ]
+
+FEATURE_FLAGS = {
+    'NEWS_SECTION_ON': env.bool('FEATURE_NEWS_SECTION_ENABLED', False)
+}
 
 ROOT_URLCONF = 'config.urls'
 
@@ -79,6 +90,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# HEADER/FOOTER URLS
+DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC = env.str(
+    'DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC', ''
+)
+DIRECTORY_CONSTANTS_URL_INVEST = env.str('DIRECTORY_CONSTANTS_URL_INVEST', '')
+DIRECTORY_CONSTANTS_URL_FIND_A_SUPPLIER = env.str(
+    'DIRECTORY_CONSTANTS_URL_FIND_A_SUPPLIER', ''
+)
 
 
 # Database
