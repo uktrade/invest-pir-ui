@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from pir_frontend.views import PIRView
+from pir_frontend.views import PIRView, ProxyView
 
 urlpatterns = [
     url('^$', PIRView.as_view()),
-    url('^invest/pir/$', PIRView.as_view())
+    url('^reports/(?P<filename>.*)$', ProxyView.as_view()),
+    url('^perfectfit/reports/(?P<filename>.*)$', ProxyView.as_view()),
+    url('^perfectfit/$', PIRView.as_view()),
 ]

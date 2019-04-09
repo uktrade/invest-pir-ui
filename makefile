@@ -43,7 +43,11 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_PIR_UI_RECAPTCHA_PRIVATE_KEY=debug; \
 	export INVEST_PIR_UI_PIR_API_KEY=debug; \
 	export INVEST_PIR_UI_PIR_API_URL=foo; \
-	export INVEST_PIR_UI_NORECAPTCHA_TESTING=True
+	export INVEST_PIR_UI_NORECAPTCHA_TESTING=True; \
+	export NEWS_SECTION_ON=false; \
+	export DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC=http://exred.trade.great:8007; \
+	export DIRECTORY_CONSTANTS_URL_FIND_A_SUPPLIER=http://supplier.trade.great:8005; \
+	export DIRECTORY_CONSTANTS_URL_INVEST=http://invest.trade.great:8012
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \

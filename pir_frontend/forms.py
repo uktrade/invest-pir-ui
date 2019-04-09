@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+from django.forms import TextInput
 
 from directory_components import forms, fields
 from django_countries.data import COUNTRIES
@@ -10,26 +12,34 @@ from pir_client.client import PIRAPIClient
 class PIRForm(forms.Form):
     name = fields.CharField(
         required=True,
-        label='Name',
+        label=_('Name'),
     )
     company = fields.CharField(
         required=True,
-        label='Company',
+        label=_('Company'),
     )
 
     email = fields.EmailField(
         required=True,
-        label='Email',
+        label=_('Email'),
+    )
+
+    phone_number = fields.CharField(
+        required=False,
+        label=_('Phone number (optional)'),
+        widget=TextInput(attrs={'type': 'tel'})
     )
 
     country = fields.ChoiceField(
         required=True,
-        label='Country',
+        label=_('Country'),
         choices=sorted(
             [(k, v) for k, v in COUNTRIES.items()],
             key=lambda tup: tup[1]
         )
     )
+
+    gdpr_optin = fields.BooleanField(initial=False, required=False)
 
     def __init__(self, *args, **kwargs):
         super(PIRForm, self).__init__(*args, **kwargs)
