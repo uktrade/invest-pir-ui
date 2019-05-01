@@ -89,7 +89,7 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PUBLIC_KEY=debug; \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export PIR_API_KEY=debug; \
-	export PIR_API_URL=foo
+	export PIR_API_URL=http://0.0.0.0:8010
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
