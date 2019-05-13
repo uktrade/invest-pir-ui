@@ -4,6 +4,14 @@
 
 ### Implemented Enhancements:
 
+### Fixed bugs:
+
+
+## [2019.05.13](https://github.com/uktrade/invest-pir-ui/releases/tag/2019.05.13)
+[Full Changelog](https://github.com/uktrade/invest-pir-ui/releases/tag/v2.0.0...2019.05.13)
+
+### Implemented Enhancements:
+
 - Added 'UK setup guide' to header
 
 ### Fixed bugs:
