@@ -5,7 +5,7 @@ gunicorn==19.7.1
 django-countries==5.2
 django-environ==0.4.5
 django-nocaptcha-recaptcha==0.0.20
-directory-components==11.0.4
+directory-components==12.0.0
 directory-constants==16.4.0
 pir-client==0.1.0
 raven

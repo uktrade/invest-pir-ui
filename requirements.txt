@@ -13,7 +13,7 @@ cffi==1.12.3              # via cryptography
 chardet==3.0.4            # via requests
 cryptography==2.6.1       # via pyopenssl, requests
 directory-client-core==0.2.1  # via pir-client
-directory-components==11.0.4
+directory-components==12.0.0
 directory-constants==16.4.0
 django-countries==5.2
 django-environ==0.4.5
