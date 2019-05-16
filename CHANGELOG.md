@@ -3,6 +3,7 @@
 ## Pre-release
 
 ### Implemented Enhancements:
+- CMS-1528: Added feature flag for country select section of international header.
 
 ### Fixed bugs:
 
