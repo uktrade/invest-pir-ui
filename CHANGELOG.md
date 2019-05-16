@@ -3,8 +3,10 @@
 ## Pre-release
 
 ### Implemented Enhancements:
+- CMS-1528: Added feature flag for country select section of international header.
 
 ### Fixed bugs:
+- no-ticket: Fix header links by adding missing environment variable to settings file.
 
 
 ## [2019.05.13](https://github.com/uktrade/invest-pir-ui/releases/tag/2019.05.13)
