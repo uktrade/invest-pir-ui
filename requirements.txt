@@ -18,7 +18,7 @@ directory-constants==16.4.0
 django-countries==5.2
 django-environ==0.4.5
 django-nocaptcha-recaptcha==0.0.20
-django==1.11.20
+django==1.11.21
 djangorestframework==3.8.2  # via sigauth
 docutils==0.14            # via botocore
 gunicorn==19.7.1

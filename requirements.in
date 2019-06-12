@@ -1,4 +1,4 @@
-Django==1.11.20
+Django==1.11.21
 pytz==2018.4
 whitenoise==3.3.1
 gunicorn==19.7.1
