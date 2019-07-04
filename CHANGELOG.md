@@ -1,5 +1,12 @@
 # Changelog
 
+## Pre release
+
+### Fixed bugs
+
+- No ticket - Upgrade vulnerable django version to django 1.11.22
+- No ticket - Upgrade vulnerable django rest framework version
+
 ## [2019.05.16](https://github.com/uktrade/invest-pir-ui/releases/tag/2019.05.16)
 [Full Changelog](https://github.com/uktrade/invest-pir-ui/releases/tag/2019.05.13...2019.05.16)
 
